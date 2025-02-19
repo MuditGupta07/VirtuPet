@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtuPet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 flex flex-col items-center min-h-screen p-4 overflow-y-auto">
+    <h1 class="virtuPet-heading">VirtuPet</h1>
+    
+    <div id="3d-container">
+        <div id="pet-stats" class="stats space-y-4">
+            <div class="stat progress-container flex items-center">
+                <img src="assets/health-icon.png" alt="Health Icon" class="progress-icon w-10 h-10 mr-4">
+                <div class="flex-1">
+                    <label for="health" class="block text-lg font-medium text-gray-700">Health:</label>
+                    <progress id="health" value="50" max="100" class="w-full h-4 rounded-lg overflow-hidden bg-gray-200"></progress>
+                </div>
+            </div>
+            <div class="stat progress-container flex items-center">
+                <img src="assets/happiness-icon.png" alt="Happiness Icon" class="progress-icon w-10 h-10 mr-4">
+                <div class="flex-1">
+                    <label for="happiness" class="block text-lg font-medium text-gray-700">Happiness:</label>
+                    <progress id="happiness" value="50" max="100" class="w-full h-4 rounded-lg overflow-hidden bg-gray-200"></progress>
+                </div>
+            </div>
+            <div class="stat progress-container flex items-center">
+                <img src="assets/energy-icon.png" alt="Energy Icon" class="progress-icon w-10 h-10 mr-4">
+                <div class="flex-1">
+                    <label for="energy" class="block text-lg font-medium text-gray-700">Energy:</label>
+                    <progress id="energy" value="50" max="100" class="w-full h-4 rounded-lg overflow-hidden bg-gray-200"></progress>
+                </div>
+            </div>
+        </div>
+        <div id="pet-animation" class="w-36 h-36 mx-auto" aria-label="Pet Animation"></div>
+    </div>
+
+    <div id="action-buttons">
+        <button id="feed-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Feed Pet">Feed</button>
+        <button id="play-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Play with Pet">Play</button>
+        <button id="rest-btn" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" aria-label="Rest Pet">Rest</button>
+    </div>
+
+    <div id="content-container" class="container bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full mt-8 overflow-y-auto">
+        
+        <div class="mood mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">How are you feeling today?</h2>
+            <select id="mood-select" class="w-full p-2 border border-gray-300 rounded-lg" aria-label="Select Mood">
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😢 Sad</option>
+                <option value="anxious">😟 Anxious</option>
+                <option value="calm">😌 Calm</option>
+            </select>
+        </div>
+        <div class="journal-section bg-white p-4 rounded-lg shadow-lg mt-6 max-w-md w-full">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Journal</h2>
+            <textarea id="journal" class="w-full p-2 border border-gray-300 rounded-lg" rows="5" placeholder="Write your thoughts here..."></textarea>
+            <button id="save-journal-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 transition duration-300">Save</button>
+        </div>
+        <div class="daily-challenge-section bg-white p-4 rounded-lg shadow-lg mt-6 max-w-md w-full">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Daily Challenge</h2>
+            <p id="daily-challenge" class="text-lg text-gray-600">Take a 10-minute walk</p>
+            <button id="complete-challenge-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full mt-4 transition duration-300">Complete</button>
+        </div>
+    </div>
+    <audio id="happy-music" src="assets/happy-music.mp3" loop></audio>
+    <audio id="anxious-music" src="assets/anxious-music.mp3" loop></audio>
+    <audio id="sad-music" src="assets/sad-music.mp3" loop></audio>
+    <audio id="calm-music" src="assets/calm-music.mp3" loop></audio>
+    <audio id="default-music" src="assets/default-music.mp3" loop></audio>
+    <script src="app.js"></script>
+</body>
+</html>

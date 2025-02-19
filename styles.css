@@ -1,0 +1,63 @@
+/* 3D container styles */
+#3d-container {
+    width: 100%;
+    height: 400px;
+    background-color: #f0f0f0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px; /* Add margin to separate from content below */
+}
+
+/* Additional styles */
+body {
+    transition: background-color 0.5s ease;
+    margin: 0;
+    overflow-y: auto; /* Ensure the body can scroll */
+}
+
+#content-container {
+    width: 90%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 460px); /* Adjust height to fit within the viewport */
+    position: relative; /* Ensure it stays within the flow of the document */
+}
+
+#pet-stats {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.85); /* Reduce opacity */
+    padding: 15px; /* Increase padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem; /* Increase font size */
+    opacity: 75%; /* Reduce opacity */ 
+}
+
+#pet-stats .progress-container {
+    width: 250px; /* Increase the length of the bars */
+}
+
+#action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#action-buttons button {
+    margin: 0 5px;
+}
+
+.virtuPet-heading {
+    font-size: 4rem;/* Increase font size */
+    color: #fff;
+    text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000;
+    /* transform: rotateX(20deg) rotateY(20deg); */
+}
